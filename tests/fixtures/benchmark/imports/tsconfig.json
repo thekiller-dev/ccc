@@ -1,0 +1,10 @@
+{
+  "extends": "./config/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@ui/*": ["src/ui/*"],
+      "@indexed": ["src/public"]
+    }
+  }
+}
