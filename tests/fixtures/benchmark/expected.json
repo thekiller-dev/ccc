@@ -1,0 +1,614 @@
+{
+  "imports": {
+    "source_paths": [
+      "src/barrel.ts",
+      "src/cycle/a.ts",
+      "src/cycle/b.ts",
+      "src/legacy/old.ts",
+      "src/main.ts",
+      "src/old-ui/Card.ts",
+      "src/public/index.ts",
+      "src/ui/Card.ts"
+    ],
+    "expected_symbols": [
+      "function:src/cycle/a.ts::a",
+      "function:src/cycle/b.ts::b",
+      "function:src/legacy/old.ts::old",
+      "function:src/main.ts::boot",
+      "function:src/old-ui/Card.ts::Card",
+      "function:src/public/index.ts::indexed",
+      "function:src/ui/Card.ts::Card"
+    ],
+    "expected_relations": [
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "module:src/ui/Card.ts",
+        "path": "src/main.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "function:src/ui/Card.ts::Card",
+        "path": "src/main.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "module:src/public/index.ts",
+        "path": "src/main.ts",
+        "line": 2
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "function:src/public/index.ts::indexed",
+        "path": "src/main.ts",
+        "line": 2
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "module:src/barrel.ts",
+        "path": "src/main.ts",
+        "line": 3
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "function:src/ui/Card.ts::Card",
+        "path": "src/main.ts",
+        "line": 3
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "module:src/ui/Card.ts",
+        "path": "src/main.ts",
+        "line": 5
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "module:src/cycle/a.ts",
+        "path": "src/main.ts",
+        "line": 7
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "function:src/cycle/a.ts::a",
+        "path": "src/main.ts",
+        "line": 7
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/barrel.ts",
+        "target": "module:src/ui/Card.ts",
+        "path": "src/barrel.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/barrel.ts",
+        "target": "function:src/ui/Card.ts::Card",
+        "path": "src/barrel.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/cycle/a.ts",
+        "target": "module:src/cycle/b.ts",
+        "path": "src/cycle/a.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/cycle/a.ts",
+        "target": "function:src/cycle/b.ts::b",
+        "path": "src/cycle/a.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/cycle/b.ts",
+        "target": "module:src/cycle/a.ts",
+        "path": "src/cycle/b.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/cycle/b.ts",
+        "target": "function:src/cycle/a.ts::a",
+        "path": "src/cycle/b.ts",
+        "line": 1
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/cycle/a.ts::a",
+        "target": "function:src/cycle/b.ts::b",
+        "path": "src/cycle/a.ts",
+        "line": 4
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/cycle/b.ts::b",
+        "target": "function:src/cycle/a.ts::a",
+        "path": "src/cycle/b.ts",
+        "line": 4
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/main.ts::boot",
+        "target": "function:src/ui/Card.ts::Card",
+        "path": "src/main.ts",
+        "line": 12
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/main.ts::boot",
+        "target": "function:src/public/index.ts::indexed",
+        "path": "src/main.ts",
+        "line": 13
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/main.ts::boot",
+        "target": "function:src/ui/Card.ts::Card",
+        "path": "src/main.ts",
+        "line": 14
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/main.ts::boot",
+        "target": "function:src/cycle/a.ts::a",
+        "path": "src/main.ts",
+        "line": 18
+      }
+    ],
+    "expected_unresolved_imports": [
+      {
+        "path": "src/main.ts",
+        "specifier": "./not-there",
+        "line": 4
+      },
+      {
+        "path": "src/main.ts",
+        "specifier": "no-such-package-benchmark",
+        "line": 6
+      },
+      {
+        "path": "src/main.ts",
+        "specifier": "@legacy/old",
+        "line": 8
+      }
+    ],
+    "expected_unresolved_calls": [
+      {
+        "path": "src/main.ts",
+        "callee": "absent",
+        "line": 15
+      },
+      {
+        "path": "src/main.ts",
+        "callee": "missing",
+        "line": 16
+      },
+      {
+        "path": "src/main.ts",
+        "callee": "external",
+        "line": 17
+      },
+      {
+        "path": "src/main.ts",
+        "callee": "old",
+        "line": 19
+      }
+    ],
+    "no_relation_sites": [],
+    "expected_issues": [],
+    "excluded_paths": []
+  },
+  "types_calls": {
+    "source_paths": [
+      "src/alpha.ts",
+      "src/base.ts",
+      "src/beta.ts",
+      "src/consumer.ts",
+      "src/contracts.ts",
+      "src/duplicates.ts",
+      "src/util.ts",
+      "src/worker.ts"
+    ],
+    "expected_symbols": [
+      "class:src/base.ts::Base",
+      "class:src/worker.ts::Worker",
+      "interface:src/contracts.ts::Contract",
+      "interface:src/contracts.ts::Named",
+      "function:src/alpha.ts::same",
+      "function:src/beta.ts::same",
+      "function:src/consumer.ts::ambiguous",
+      "function:src/consumer.ts::chooseAmbiguous",
+      "function:src/consumer.ts::invoke",
+      "function:src/consumer.ts::viaInstance",
+      "function:src/duplicates.ts::collide",
+      "function:src/util.ts::normalize",
+      "function:src/worker.ts::Worker.finish",
+      "function:src/worker.ts::Worker.run",
+      "function:src/worker.ts::Worker.step"
+    ],
+    "expected_relations": [
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "module:src/util.ts",
+        "path": "src/consumer.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "module:src/alpha.ts",
+        "path": "src/consumer.ts",
+        "line": 2
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "function:src/alpha.ts::same",
+        "path": "src/consumer.ts",
+        "line": 2
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "module:src/beta.ts",
+        "path": "src/consumer.ts",
+        "line": 3
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "function:src/beta.ts::same",
+        "path": "src/consumer.ts",
+        "line": 3
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "module:src/duplicates.ts",
+        "path": "src/consumer.ts",
+        "line": 4
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "function:src/duplicates.ts::collide",
+        "path": "src/consumer.ts",
+        "line": 4
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "module:src/worker.ts",
+        "path": "src/consumer.ts",
+        "line": 5
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/consumer.ts",
+        "target": "class:src/worker.ts::Worker",
+        "path": "src/consumer.ts",
+        "line": 5
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/worker.ts",
+        "target": "module:src/base.ts",
+        "path": "src/worker.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/worker.ts",
+        "target": "class:src/base.ts::Base",
+        "path": "src/worker.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/worker.ts",
+        "target": "module:src/contracts.ts",
+        "path": "src/worker.ts",
+        "line": 2
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/worker.ts",
+        "target": "interface:src/contracts.ts::Contract",
+        "path": "src/worker.ts",
+        "line": 2
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/worker.ts",
+        "target": "module:src/util.ts",
+        "path": "src/worker.ts",
+        "line": 3
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/worker.ts",
+        "target": "function:src/util.ts::normalize",
+        "path": "src/worker.ts",
+        "line": 3
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/consumer.ts::invoke",
+        "target": "function:src/util.ts::normalize",
+        "path": "src/consumer.ts",
+        "line": 8
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/consumer.ts::invoke",
+        "target": "function:src/alpha.ts::same",
+        "path": "src/consumer.ts",
+        "line": 8
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/consumer.ts::invoke",
+        "target": "function:src/beta.ts::same",
+        "path": "src/consumer.ts",
+        "line": 8
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/consumer.ts::ambiguous",
+        "target": "function:src/duplicates.ts::collide",
+        "path": "src/consumer.ts",
+        "line": 12
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/worker.ts::Worker.run",
+        "target": "function:src/util.ts::normalize",
+        "path": "src/worker.ts",
+        "line": 7
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/consumer.ts::viaInstance",
+        "target": "function:src/worker.ts::Worker.run",
+        "path": "src/consumer.ts",
+        "line": 17
+      },
+      {
+        "type": "EXTENDS",
+        "source": "class:src/worker.ts::Worker",
+        "target": "class:src/base.ts::Base",
+        "path": "src/worker.ts",
+        "line": 5
+      },
+      {
+        "type": "IMPLEMENTS",
+        "source": "class:src/worker.ts::Worker",
+        "target": "interface:src/contracts.ts::Contract",
+        "path": "src/worker.ts",
+        "line": 5
+      },
+      {
+        "type": "EXTENDS",
+        "source": "interface:src/contracts.ts::Named",
+        "target": "interface:src/contracts.ts::Contract",
+        "path": "src/contracts.ts",
+        "line": 5
+      }
+    ],
+    "expected_unresolved_imports": [],
+    "expected_unresolved_calls": [
+      {
+        "path": "src/consumer.ts",
+        "callee": "maybe",
+        "line": 22
+      },
+      {
+        "path": "src/util.ts",
+        "callee": "value.trim",
+        "line": 2
+      },
+      {
+        "path": "src/worker.ts",
+        "callee": "this.finish",
+        "line": 11
+      }
+    ],
+    "no_relation_sites": [
+      {
+        "type": "CALLS",
+        "source": "function:src/consumer.ts::chooseAmbiguous",
+        "path": "src/consumer.ts",
+        "line": 22,
+        "reason": "The conditional alias may call either same-named import."
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/worker.ts::Worker.step",
+        "path": "src/worker.ts",
+        "line": 11,
+        "reason": "this-dispatch is deliberately left unresolved because subclasses may override it."
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/util.ts::normalize",
+        "path": "src/util.ts",
+        "line": 2,
+        "reason": "String.trim is a library method with no project source target."
+      }
+    ],
+    "expected_issues": [],
+    "excluded_paths": []
+  },
+  "react_jsx": {
+    "source_paths": [
+      "src/App.tsx",
+      "src/Card.tsx",
+      "src/jsx.d.ts"
+    ],
+    "expected_symbols": [
+      "function:src/App.tsx::App",
+      "function:src/Card.tsx::Card",
+      "interface:src/Card.tsx::CardProps",
+      "interface:src/jsx.d.ts::Element",
+      "interface:src/jsx.d.ts::ElementChildrenAttribute",
+      "interface:src/jsx.d.ts::IntrinsicElements"
+    ],
+    "expected_relations": [
+      {
+        "type": "IMPORTS",
+        "source": "module:src/App.tsx",
+        "target": "module:src/Card.tsx",
+        "path": "src/App.tsx",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/App.tsx",
+        "target": "function:src/Card.tsx::Card",
+        "path": "src/App.tsx",
+        "line": 1
+      }
+    ],
+    "expected_unresolved_imports": [],
+    "expected_unresolved_calls": [],
+    "no_relation_sites": [
+      {
+        "type": "CALLS",
+        "source": "function:src/App.tsx::App",
+        "target": "function:src/Card.tsx::Card",
+        "path": "src/App.tsx",
+        "line": 4,
+        "reason": "JSX component rendering is not represented by an edge type in schema 1.0 and JSX tags are not extracted as call sites."
+      }
+    ],
+    "unsupported_expectations": [
+      {
+        "kind": "JSX_RENDER",
+        "source": "function:src/App.tsx::App",
+        "target": "function:src/Card.tsx::Card",
+        "path": "src/App.tsx",
+        "line": 4,
+        "counted_in_metrics": false
+      }
+    ],
+    "expected_issues": [],
+    "excluded_paths": []
+  },
+  "robustness": {
+    "source_paths": [
+      "src/broken.ts",
+      "src/invalid_config/local.ts",
+      "src/invalid_config/main.ts",
+      "src/local.ts",
+      "src/main.ts"
+    ],
+    "expected_symbols": [
+      "function:src/invalid_config/local.ts::local",
+      "function:src/invalid_config/main.ts::run",
+      "function:src/local.ts::local",
+      "function:src/main.ts::run"
+    ],
+    "expected_relations": [
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "module:src/local.ts",
+        "path": "src/main.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/main.ts",
+        "target": "function:src/local.ts::local",
+        "path": "src/main.ts",
+        "line": 1
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/main.ts::run",
+        "target": "function:src/local.ts::local",
+        "path": "src/main.ts",
+        "line": 5
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/invalid_config/main.ts",
+        "target": "module:src/invalid_config/local.ts",
+        "path": "src/invalid_config/main.ts",
+        "line": 1
+      },
+      {
+        "type": "IMPORTS",
+        "source": "module:src/invalid_config/main.ts",
+        "target": "function:src/invalid_config/local.ts::local",
+        "path": "src/invalid_config/main.ts",
+        "line": 1
+      },
+      {
+        "type": "CALLS",
+        "source": "function:src/invalid_config/main.ts::run",
+        "target": "function:src/invalid_config/local.ts::local",
+        "path": "src/invalid_config/main.ts",
+        "line": 5
+      }
+    ],
+    "expected_unresolved_imports": [
+      {
+        "path": "src/main.ts",
+        "specifier": "@/local",
+        "line": 2
+      },
+      {
+        "path": "src/invalid_config/main.ts",
+        "specifier": "@/local",
+        "line": 2
+      }
+    ],
+    "expected_unresolved_calls": [
+      {
+        "path": "src/main.ts",
+        "callee": "alias",
+        "line": 5
+      },
+      {
+        "path": "src/invalid_config/main.ts",
+        "callee": "alias",
+        "line": 5
+      }
+    ],
+    "no_relation_sites": [],
+    "expected_issues": [
+      {
+        "path": "src/.env.ts",
+        "reason": "sensitive_file"
+      },
+      {
+        "path": "src/broken.ts",
+        "reason": "syntax_error"
+      },
+      {
+        "path": "src/secrets.ts",
+        "reason": "sensitive_file"
+      }
+    ],
+    "excluded_paths": [
+      "src/.env.ts",
+      "src/secrets.ts",
+      "node_modules/ghost/index.ts"
+    ]
+  }
+}

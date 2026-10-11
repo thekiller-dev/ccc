@@ -1,0 +1,82 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e5eaf5;
+  background: #080c15;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color-scheme: dark;
+
+  --app-bg: #080c15;
+  --panel: #0d1320;
+  --panel-raised: #111a2a;
+  --panel-soft: #121b2b;
+  --panel-hover: #172235;
+  --line: rgba(149, 168, 205, 0.12);
+  --line-strong: rgba(149, 168, 205, 0.2);
+  --text: #e5eaf5;
+  --text-secondary: #a2aec3;
+  --muted: #6e7b91;
+  --faint: #4c5a70;
+  --accent: #8b9cff;
+  --teal: #38d5c3;
+  --danger: #fb7185;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  font-size: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+::selection {
+  color: #fff;
+  background: rgba(112, 128, 255, 0.36);
+}
+
+:focus-visible {
+  outline: 2px solid rgba(139, 156, 255, 0.85);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 99px;
+  background: rgba(143, 158, 185, 0.25);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(143, 158, 185, 0.4);
+  background-clip: padding-box;
+}

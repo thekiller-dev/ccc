@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": "..",
+    "paths": {
+      "@ui/*": ["src/old-ui/*"],
+      "@legacy/*": ["src/legacy/*"]
+    }
+  }
+}
